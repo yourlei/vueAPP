@@ -79,12 +79,14 @@
         })
       },
       initData: function () {
-        for (let i = 0; i < this.questionList.length; i++) {
-          if (typeof this.questionList[i].actived === 'undefined') {
-            this.questionList[i].actived = false
-          }
+        // for (let i = 0; i < this.questionList.length; i++) {
+        //   if (typeof this.questionList[i].actived === 'undefined') {
+        //     this.questionList[i].actived = false
+        //   }
+        // }
+        if (this.questionList) {
+          this.questionList[0].actived = true
         }
-        this.questionList[0].actived = true
       },
       showPreviewbox: function () {
         this.isShow = !this.isShow
