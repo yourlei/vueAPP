@@ -24,7 +24,7 @@
     <div class="preview-box" :class="{show : isShow}">
       <div class="inner">
         <span v-for="(item, index) in questionList"
-              @click="showTarget(item)">
+              @click="showTarget(item, index)">
           {{ index | round }}
         </span>
       </div>
@@ -102,11 +102,12 @@
 
         this.questionList[this.currentNumber].actived = true
       },
-      showTarget: function (item) {
+      showTarget: function (item, index) {
         for (let i in this.questionList) {
           this.questionList[i].actived = false
         }
         item.actived = true
+        this.currentNumber = index
       }
     },
     filters: {
