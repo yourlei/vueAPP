@@ -1,0 +1,114 @@
+{
+  "app": {
+    "lensson": {
+      "zscw": [
+        {
+          "name": "Java",
+          "totals": 60,
+          "completed": 0,
+          "isSlide": false,
+          "chapters": [
+            {
+              "id": "java_chapter01",
+              "name": "第一章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "java_chapter02",
+              "name": "第二章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "java_chapter03",
+              "name": "第三章",
+              "totals": 60,
+              "completed": 0
+            }
+          ]
+        },
+        {
+          "name": "PHP",
+          "totals": 60,
+          "completed": 0,
+          "isSlide": false,
+          "chapters": [
+            {
+              "id": "php_basic_01",
+              "name": "第一章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "php_basic_02",
+              "name": "第二章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "php_basic_03",
+              "name": "第三章",
+              "totals": 60,
+              "completed": 0
+            }
+          ]
+        }
+      ],
+      "zxks": [
+        {
+          "name": "Java2",
+          "totals": 60,
+          "completed": 0,
+          "isSlide": false,
+          "chapters": [
+            {
+              "id": "java_basic_01",
+              "name": "第一章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "java_basic_02",
+              "name": "第二章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "java_basic_03",
+              "name": "第三章",
+              "totals": 60,
+              "completed": 0
+            }
+          ]
+        },
+        {
+          "name": "PHP2",
+          "totals": 60,
+          "completed": 0,
+          "isSlide": false,
+          "chapters": [
+            {
+              "id": "php_basic_01",
+              "name": "第一章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "php_basic_02",
+              "name": "第二章",
+              "totals": 60,
+              "completed": 0
+            },
+            {
+              "id": "php_basic_03",
+              "name": "第三章",
+              "totals": 60,
+              "completed": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

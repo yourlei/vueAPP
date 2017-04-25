@@ -2,10 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>vue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"/>
+    <title>bigdata app by vue</title>
+    <link rel="stylesheet" type="text/css" href="/static/libs/weui/weui.min.css">
+    <style type="text/css">
+      body {
+        background-color: #efeff4;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" v-cloak>
+      <router-view></router-view>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
