@@ -9,19 +9,19 @@
           "isSlide": false,
           "chapters": [
             {
-              "id": "java_chapter01",
+              "id": "java_chapter_01",
               "name": "第一章",
               "totals": 60,
               "completed": 0
             },
             {
-              "id": "java_chapter02",
+              "id": "java_chapter_02",
               "name": "第二章",
               "totals": 60,
               "completed": 0
             },
             {
-              "id": "java_chapter03",
+              "id": "java_chapter_03",
               "name": "第三章",
               "totals": 60,
               "completed": 0

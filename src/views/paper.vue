@@ -9,7 +9,8 @@
   	<main class="container">
       <ul class="wrap">
         <li class="list-item" 
-            v-for="(item, index) in questionList">
+            v-for="(item, index) in questionList"
+            :class="{'actived' : item.actived}">
           <h5>
             <span class="numberID">{{ index | round }}</span>
             <span class="question">{{ item.title }}</span>
@@ -22,12 +23,10 @@
   	</main>
     <div class="preview-box" :class="{show : isShow}">
       <div class="inner">
-        <span v-for="(item, index) in questionList">{{ index | round }}</span>
-        <!-- <span>02</span>
-        <span>01</span>
-        <span>02</span>
-        <span>01</span>
-        <span>02</span> -->
+        <span v-for="(item, index) in questionList"
+              @click="showTarget(item)">
+          {{ index | round }}
+        </span>
       </div>
       <span class="triangle">icon</span>
     </div>
@@ -71,10 +70,21 @@
     methods: {
       getList: function () {
         this.$http.get('/static/data/questions.json').then(function (res) {
-          this.questionList = res.body.questions
+          let params = this.$route.params.id
+          // according $route params id load json data
+          this.questionList = res.body.questions[params]
+          this.initData()
         }, function (err) {
           console.log(err)
         })
+      },
+      initData: function () {
+        for (let i = 0; i < this.questionList.length; i++) {
+          if (typeof this.questionList[i].actived === 'undefined') {
+            this.questionList[i].actived = false
+          }
+        }
+        this.questionList[0].actived = true
       },
       showPreviewbox: function () {
         this.isShow = !this.isShow
@@ -83,10 +93,20 @@
         if (num === -1 && (this.currentNumber !== 0)) {
           this.currentNumber -= 1
         }
-        if (num === 1 && this.currentNumber < this.questionList.length) {
+        if (num === 1 && this.currentNumber < this.questionList.length - 1) {
           this.currentNumber += 1
         }
-        alert(this.currentNumber)
+        for (let i in this.questionList) {
+          this.questionList[i].actived = false
+        }
+
+        this.questionList[this.currentNumber].actived = true
+      },
+      showTarget: function (item) {
+        for (let i in this.questionList) {
+          this.questionList[i].actived = false
+        }
+        item.actived = true
       }
     },
     filters: {
@@ -134,8 +154,10 @@ $skyblue: #12b7f5;
   
   .list-item {
     width: 100%;
-    display: inline-block;
-
+    display: none;
+    &.actived {
+      display: inline-block;
+    }
     .numberID {
       width: 3rem;
       height: 3rem;

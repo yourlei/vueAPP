@@ -1,16 +1,38 @@
 {
-  "questions": [
-    {
-      "title": "JS中的数据类型哪些？",
-      "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
-    },
-    {
-      "title": "JS中的数据类型哪些？",
-      "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
-    },
-    {
-      "title": "JS中的数据类型哪些？",
-      "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
-    }
-  ]
+  "questions": {
+    "java_chapter_01": [
+      {
+        "actived": false,
+        "title": "JS中的数据类型哪些？",
+        "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
+      },
+      {
+        "actived": false,
+        "title": "JS中的数据类型哪些？",
+        "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
+      },
+      {
+        "actived": false,
+        "title": "JS中的数据类型哪些？",
+        "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
+      } 
+    ],
+    "java_chapter_02": [
+      {
+        "actived": false,
+        "title": "JS中创建对象有哪些方式？",
+        "answer": "工厂方式、构造函数方式、原型方式、混合构造函数方式、动态原型方式"
+      },
+      {
+        "actived": false,
+        "title": "JS中创建对象有哪些方式？",
+        "answer": "工厂方式、构造函数方式、原型方式、混合构造函数方式、动态原型方式"
+      },
+      {
+        "actived": false,
+        "title": "JS中创建对象有哪些方式？",
+        "answer": "工厂方式、构造函数方式、原型方式、混合构造函数方式、动态原型方式"
+      } 
+    ]
+  }
 }
