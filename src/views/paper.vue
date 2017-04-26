@@ -59,12 +59,14 @@
       return {
         questionList: [],
         isShow: false,
-        currentNumber: 0
+        currentNumber: 0,
+        count: 0
       }
     },
     mounted: function () {
       this.$nextTick(function () {
         this.getList()
+        console.log(this.count++)
       })
     },
     methods: {

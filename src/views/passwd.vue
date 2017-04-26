@@ -2,26 +2,55 @@
   <div>
     <div class="page"></div>
     <div class="form">
-      <form method="" action="">
+      <form method="" action=""
+            @click="submit">
         <label>
         	<input type="password" name="current" placeholder="当前密码">
         </label>
         <label>
-          <input type="password" name="newPasswd1" placeholder="新密码">
+          <input type="password"
+                 name="newPasswd1"
+                 placeholder="新密码"
+                 v-model="formData.newPasswd1">
         </label>
         <label>
-          <input type="password" name="newPasswd2" placeholder="新密码确认">
+          <input type="password"
+                 name="newPasswd2"
+                 placeholder="新密码确认"
+                 v-model="formData.newPasswd2">
         </label>
         <label>
           <input type="submit" name="" value="确认">
         </label>
       </form>
     </div>
+    <div class="tipInfo">
+      <p v-text="tipInfo"></p>
+    </div>
   </div> 	
 </template>
 
 <script>
-  
+  export default {
+    data: function () {
+      return {
+        formData: {
+          newPasswd1: null,
+          newPasswd2: null
+        },
+        tipInfo: 'wran'
+      }
+    },
+    methods: {
+      submit: function () {
+        if (!this.formData.newPasswd1 || !this.formData.newPasswd2) {
+          alert('please input new password')
+          return false
+        }
+        return true
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -63,6 +92,25 @@
     	color: #FFF;
     	letter-spacing: 2px;
     	background-color: #F66;
+    }
+  }
+  .tipInfo {
+    position: fixed;
+    left: 50%;
+    bottom: 30%;
+    width: 50%;
+    height: 48px;
+    line-height: 100%;
+    padding: 0 1rem;
+    color: #FFF;
+    text-align: center;
+    border-radius: 8px 8px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, .4);
+
+    p {
+      width: 100%;
+      line-height: 100%;
     }
   }
 </style>
