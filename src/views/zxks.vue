@@ -4,13 +4,13 @@
     <lay-out :tab-type="tabTtile"></lay-out>
     <div class="container">
       <section class="model-list">
-        <router-link tag="li" :to="{'name': 'zxks', query: {tab: 'lx'}}" class="model-item">
+        <router-link tag="li" :to="{'name': 'zscw', query: {model: 'lx'}}" class="model-item">
           <a href=""><img src="../assets/images/exam/lx.png" alt="练习模式"></a>
         </router-link>
-        <router-link tag="li" :to="{'name': 'zxks', query: {tab: 'cg'}}" class="model-item">
+        <router-link tag="li" :to="{'name': 'zxks', query: {model: 'cg'}}" class="model-item">
           <a href=""><img src="../assets/images/exam/cg.png" alt="闯关模式"></a>
         </router-link>
-        <router-link tag="li" :to="{'name': 'zxks', query: {tab: 'ks'}}" class="model-item">
+        <router-link tag="li" :to="{'name': 'zxks', query: {model: 'ks'}}" class="model-item">
           <a href=""><img src="../assets/images/exam/ks.png" alt="考试模式"></a>
         </router-link>
     </section>
@@ -22,7 +22,7 @@
   export default {
     data: function () {
       return {
-        tabTtile: '在线考试'
+        tabTtile: '在线测试'
       }
     },
     mounted: function () {

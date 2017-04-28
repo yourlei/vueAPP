@@ -27,10 +27,6 @@
       <div class="tipInfo" ref='tip'>
         <p v-text="tipInfo"></p>
       </div>
-
-      <!-- <transition name="fade">
-        <p v-if="isPass">hello</p>
-      </transition> -->
     </div>
   </div> 	
 </template>
@@ -68,6 +64,14 @@
           self.tipInfo = '输入的新密码不一致'
           this.fateOUt()
           return false
+        } else {
+          self.tipInfo = '修改成功!'
+          this.fateOUt()
+          setTimeout(() => {
+            self.$router.push({
+              name: 'home'
+            })
+          }, 2000)
         }
         return true
       },
@@ -97,7 +101,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding-top: 19rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,16 +111,17 @@
         display: flex;
       }
       input {
+        width: 210px;
         line-height: 100%;
         margin: .4rem 0;
-        padding: .7rem .3rem;
+        padding: 1rem .3rem;
         border-radius: .4rem;
         font-size: 16px;
         outline: none;
         border: 0;
+        box-sizing: border-box;
       }
       input[type='submit'] {
-        width: 198px;
         margin-top: .5rem;
         color: #FFF;
         letter-spacing: 2px;
@@ -125,7 +129,7 @@
       }
     }
     .tipInfo {
-      width: 11rem;
+      width: 210px;
       height: 48px;
       display: flex;
       align-items: center;
@@ -136,12 +140,37 @@
       border-radius: 8px 8px;
       opacity: 0;
       background-color: rgba(0, 0, 0, .4);
-      transition: all .3s ease-out-in;
-
+      transition: all .3s ease-out;
+      box-sizing: border-box;
       p {
         width: 100%;
         line-height: 100%;
       }
+    }
+  }
+  @media (min-width: 320px) {
+    .wrap {
+      padding-top: 60%;
+    }
+  }
+  @media (min-width: 414px) {
+    .wrap {
+      padding-top: 70%;
+    }
+  }
+  @media (min-width: 440px) {
+    .wrap {
+      padding-top: 45%;
+    }
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding-top: 28%;
+    }
+  }
+  @media (min-width: 1208px) {
+    .wrap {
+      padding-top: 20%;
     }
   }
 </style>

@@ -43,7 +43,7 @@ const Routers = [
     }
   },
   {
-    path: '/paper/:id',
+    path: '/zscw/paper/:id',
     name: 'paper',
     component(resolve) {
       require.ensure(['../views/paper.vue'], () => {

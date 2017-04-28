@@ -21,7 +21,7 @@
                   <span>
                     <i class="completed">{{ detail.completed }}</i>
                     <i>/</i>
-                    <i class="toatl">{{ detail.totals}} </i>
+                    <i class="toatl">{{ detail.totals　}} </i>
                   </span>
                 </div>
               </router-link>

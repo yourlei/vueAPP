@@ -24,6 +24,7 @@
     <div class="preview-box" :class="{show : isShow}">
       <div class="inner">
         <span v-for="(item, index) in questionList"
+              :class="currentNumber === index ? 'actived' : ''"
               @click="showTarget(item, index)">
           {{ index | round }}
         </span>
@@ -81,11 +82,6 @@
         })
       },
       initData: function () {
-        // for (let i = 0; i < this.questionList.length; i++) {
-        //   if (typeof this.questionList[i].actived === 'undefined') {
-        //     this.questionList[i].actived = false
-        //   }
-        // }
         if (this.questionList) {
           this.questionList[0].actived = true
         }
@@ -189,7 +185,7 @@ $skyblue: #12b7f5;
     position: fixed;
     bottom: 70px;
     left: 50%;
-    width: 50%;
+    width: 60%;
     padding: 1rem .5rem;
     text-align: center;
     transform: translateX(-50%);
@@ -205,7 +201,7 @@ $skyblue: #12b7f5;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-
+      
       span {
         display: inline-flex;
         width: 2.5rem;
@@ -216,6 +212,9 @@ $skyblue: #12b7f5;
         justify-content: center;
         background-color: #FFF;
         cursor: pointer;
+        &.actived {
+          color: $skyblue;
+        }
       }
     }
     .triangle {
