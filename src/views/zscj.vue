@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- layout -->
-    <lay-out :tab-type="tabTtile"></lay-out>
+    <lay-out :tab-type="tabTitle"></lay-out>
     <div class="container">
       <section class="list">
         <li class="list-item">
@@ -64,7 +64,7 @@
   export default {
     data: function () {
       return {
-        tabTtile: '知识串讲'
+        tabTitle: '知识串讲'
       }
     },
     mounted: function () {

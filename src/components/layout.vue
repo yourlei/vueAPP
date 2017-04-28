@@ -25,7 +25,7 @@
       <router-link :to="{'name': 'zxks'}" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
           <img src="../assets/images/index/zxcs_b.png" alt=""
-               v-if="tabType === '在线测试'">
+               v-if="tabType === '在线测试' || tabType === '练习模式' || tabType === '闯关模式' ">
           <img v-else src="../assets/images/index/zxcs.png" alt="">
         </div>
         <p class="weui-tabbar__label">在线测试</p>

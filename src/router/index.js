@@ -25,7 +25,7 @@ const Routers = [
     component: Zscw
   },
   {
-    path: '/zxks',
+    path: '/zxcs',
     name: 'zxks',
     component(resolve) {
       require.ensure(['../views/zxks.vue'], () => {
@@ -43,11 +43,29 @@ const Routers = [
     }
   },
   {
+    path: '/zxcs/list',
+    name: 'list',
+    component(resolve) {
+      require.ensure(['../views/list.vue'], () => {
+        resolve(require('../views/list.vue'))
+      })
+    }
+  },
+  {
     path: '/zscw/paper/:id',
     name: 'paper',
     component(resolve) {
       require.ensure(['../views/paper.vue'], () => {
         resolve(require('../views/paper.vue'))
+      })
+    }
+  },
+  {
+    path: '/zxcs/paper/:id',
+    name: 'zxcspaper',
+    component(resolve) {
+      require.ensure(['../views/lx_detail.vue'], () => {
+        resolve(require('../views/lx_detail.vue'))
       })
     }
   },
