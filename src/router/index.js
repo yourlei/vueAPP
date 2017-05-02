@@ -61,7 +61,7 @@ const Routers = [
     }
   },
   {
-    path: '/zxcs/paper/:id',
+    path: '/zxcs/paper',
     name: 'zxcspaper',
     component(resolve) {
       require.ensure(['../views/lx_detail.vue'], () => {

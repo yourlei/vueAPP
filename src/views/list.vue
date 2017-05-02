@@ -13,7 +13,7 @@
           <ul class="lensson-detail" :class="{'slide' : item.isSlide}">
             <li class="lensson-chapter"
                 v-for="detail in item.chapters">
-              <router-link :to="{name: 'zxcspaper', params: {id: detail.id}}">
+              <router-link :to="{name: 'zxcspaper', query: {type: model, id: detail.id}}">
                 <img src="../assets/images/index/minus_sign.png">
                 <p>{{ detail.name }}</p>
                 <div class="progress-bar">
@@ -41,7 +41,8 @@
     data: function () {
       return {
         lenssonList: [],
-        tabTitle: ''
+        tabTitle: '',
+        model: ''
       }
     },
     methods: {
@@ -68,13 +69,15 @@
     },
     mounted: function () {
       let self = this
-      console.log(this.$route)
+      // console.log(this.$route)
       self.$nextTick(function () {
         if (self.$route.query.model === 'lx') {
           self.tabTitle = '练习模式'
+          self.model = 'lx'
         }
         if (self.$route.query.model === 'cg') {
           self.tabTitle = '闯关模式'
+          self.model = 'cg'
         }
       })
       self.getList()

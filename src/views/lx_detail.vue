@@ -1,10 +1,10 @@
 <template>
   <div class="paper ">
   	<header class="topbar">
-  	  <router-link :to="{name: 'list', query: {'model': 'lx'}}">
+  	  <router-link :to="{name: 'list', query: {'model': model}}">
         <img src="../assets/images/common/fanhui.png" class="btn">
       </router-link>
-  		<span class="title">练习模式</span>
+  		<span class="title">{{ tabTitle }}</span>
   	</header>
   	<main class="container">
       <ul class="wrap">
@@ -51,6 +51,7 @@
 </template>
 <script>
   require('../assets/scss/reset.scss')
+  require('../assets/scss/paper.scss')
   import Vue from 'vue'
   import vueResource from 'vue-resource'
   Vue.use(vueResource)
@@ -59,24 +60,37 @@
     data: function () {
       return {
         questionList: [],
+        _router: null,
+        tabTitle: '',
+        model: '',
         isShow: false,
         currentNumber: 0,
         count: 0
       }
     },
     mounted: function () {
+      let self = this
+      self._router = self.$route
+      self.model = self._router.query.type
       this.$nextTick(function () {
-        this.getList()
-        console.log(this.count++)
+        self.getList()
+        if (self._router.query.type === 'lx') {
+          self.tabTitle = '练习模式'
+        } else {
+          self.tabTitle = '闯关模式'
+        }
+        // console.log(this.count++)
       })
     },
     methods: {
       getList: function () {
         this.$http.get('/static/data/questions.json').then(function (res) {
-          let params = this.$route.params.id
+          let tab = this._router.fullPath.split('\/')[1]
+          let params = this._router.query.id
           // according $route params id load json data
-          this.questionList = res.body.questions[params]
+          this.questionList = ((res.body.questions[tab])[this.model])[params]
           this.initData()
+          console.log(this.questionList)
         }, function (err) {
           console.log(err)
         })
@@ -120,141 +134,3 @@
     }
   }
 </script>
-<style lang="scss" scoped>
-$skyblue: #12b7f5;
-
-.container {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: .6rem 0;
-  color: white;
-  text-align: center;
-  transition: all .5s ease-in-out;
-  background-color: #12b7f5;
-  z-index: 9;
-
-  .btn {
-    position: absolute;
-    left: 2rem;
-  }
-  .title {
-    display: inline-block;
-  }
-}
-.wrap {
-  width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
-  overflow: hidden;
-  
-  .list-item {
-    width: 100%;
-    display: none;
-    &.actived {
-      display: inline-block;
-    }
-    .numberID {
-      width: 3rem;
-      height: 3rem;
-      padding: .2rem .3rem;
-      font-size: 2rem;
-      color: $skyblue;
-    }
-    .question {
-      font-size: 1.2rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-    .answer {
-      margin-top: 5px;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-    }
-  }
-}
-.paper {
-  position: relative;
-  
-  .preview-box {
-    position: fixed;
-    bottom: 70px;
-    left: 50%;
-    width: 60%;
-    padding: 1rem .5rem;
-    text-align: center;
-    transform: translateX(-50%);
-    border-radius: 5px 5px;
-    opacity: 0;
-    transition: all .3s ease-in-out;
-    background-color: rgba(185, 156, 156, 0.8);
-    &.show {
-      opacity: 1;
-    }
-    .inner {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      
-      span {
-        display: inline-flex;
-        width: 2.5rem;
-        height: 2.5rem;
-        padding: 5px;
-        margin: 5px;
-        align-items: center;
-        justify-content: center;
-        background-color: #FFF;
-        cursor: pointer;
-        &.actived {
-          color: $skyblue;
-        }
-      }
-    }
-    .triangle {
-      position: absolute;
-      display: inline-block;
-      height: 0;
-      width: 18px;
-      text-indent: 9999px;
-      transform: translate(-50%, 15px);
-      border-top: 18px solid rgba(185, 156, 156, 0.8);
-      border-right: 18px solid transparent;
-      border-bottom: 18px solid transparent;
-      border-left: 18px solid transparent;
-    }
-  }
-  @media (min-width: 768px) {
-    .preview-box {
-      width: 320px;
-      height: auto;
-    }
-  }
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 48px;
-    padding: 10px 0;
-    background-color: #FFF;
-  }
-  .tab-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    line-height: 100%;
-    span {
-      display: inline-flex;
-
-      cursor: pointer;
-    }
-  }
-}
-</style>
