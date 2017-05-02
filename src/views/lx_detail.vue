@@ -15,8 +15,15 @@
             <span class="numberID">{{ index | round }}</span>
             <span class="question">{{ item.title }}</span>
           </h5>
-          <div class="answer">
-            {{ item.answer }}
+          <div class="answer"
+               v-for="(option, i) in item.options">
+            <span v-if="i ===0">A</span>
+            <span v-else-if="i ===1">B</span>
+            <span v-else-if="i ===2">C</span>
+            <span v-else-if="i ===3">D</span>
+            <span v-else-if="i ===4">E</span>
+            <span v-else-if="i ===5">F</span>
+            {{ option }}
           </div>
         </li>
       </ul>

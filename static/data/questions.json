@@ -40,19 +40,40 @@
       "lx": {
         "js_chapter_01": [
           {
+            "type": "单选",
             "actived": false,
             "title": "JS中的数据类型哪些？",
-            "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
+            "options": [
+                "number、string、boolean、null、undefined、symbol",
+                "number",
+                "number、string",
+                "number、string、boolean、null"
+            ],
+            "answer": "A"
           },
           {
+            "type": "单选",
             "actived": false,
             "title": "JS中的数据类型哪些？",
-            "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
+            "options": [
+                "number、string、boolean、null、undefined、symbol",
+                "number",
+                "number、string",
+                "number、string、boolean、null"
+            ],
+            "answer": "A"
           },
           {
+            "type": "单选",
             "actived": false,
             "title": "JS中的数据类型哪些？",
-            "answer": "JS中基本的数据类型有 number、string、boolean、null、undefined、symbol"
+            "options": [
+                "number、string、boolean、null、undefined、symbol",
+                "number",
+                "number、string",
+                "number、string、boolean、null"
+            ],
+            "answer": "A"
           } 
         ],
         "js_chapter_02": [
