@@ -98,7 +98,11 @@
     },
     mounted: function () {
       this.$nextTick(function () {
+        if (window.sessionStorage) {
+          console.log(window.sessionStorage)
+        }
         this.initList()
+        console.log('init....')
         // console.log(_this.lenssonList)
       })
     },
