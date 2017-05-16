@@ -11,8 +11,11 @@
         <li class="list-item" 
             v-for="(item, index) in questionList"
             :class="{'actived' : item.actived}">
-          <h5>
-            <span class="numberID">{{ index | round }}</span>
+          <h5 class="queInfo">
+            <span class="number-box">
+              <span class="font-size">{{ index | round }}</span>
+              <span class="type">{{ item.type }}</span>
+            </span>
             <span class="question">{{ item.title }}</span>
           </h5>
           <div class="answer"
@@ -141,3 +144,25 @@
     }
   }
 </script>
+<style lang="scss">
+  .queInfo {
+    display: flex;
+    align-items: center;
+    text-indent: 5px;
+  }
+  .number-box {
+    display: inline-block;
+    max-width: 45px;
+    overflow: hidden;
+
+    & > span {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+  .font-size {
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
+</style>
